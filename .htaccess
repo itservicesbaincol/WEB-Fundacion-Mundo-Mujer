@@ -1,0 +1,40 @@
+#
+# Desarrollo: K diseño digital :: Camilo Useche Silva 
+#
+
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+
+Options  FollowSymLinks
+
+
+RewriteEngine On
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+RewriteRule ((index)?.+)$ index.php?url=$1 [QSA,L]
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^fmm.org.co
+RewriteRule (.*) https://www.fmm.org.co/$1 [R=301,L]
+
+ErrorDocument 404 /404.php
+
+<ifModule mod_headers.c>
+Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+Header always set Content-Security-Policy "upgrade-insecure-requests"
+Header set Referrer-Policy "same-Origin"
+Header always set X-Frame-Options "SAMEORIGIN"
+Header set X-Content-Type-Options "nosniff"
+</ifModule>
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php74” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php74___lsphp .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

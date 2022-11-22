@@ -1,0 +1,22 @@
+
+{
+    "name": "My Server",
+    "host": "web521.webfaction.com",
+    "protocol": "sftp",
+    "port": 22,
+    "username": "usrfmm",
+    "password": "KLb68#@!T92**.%/Gh",
+    "remotePath": "/home/usrfmm/webapps/htdocs/",
+    "uploadOnSave": true
+}
+
+{
+    "name": "My Server",
+    "host": "www.fmm.org.co",
+    "protocol": "ftp",
+    "port": 21,
+    "username": "usrfmm",
+    "password": "KLb68#@!T92**.%/Gh",
+    "remotePath": "/public_html/",
+    "uploadOnSave": true
+}
